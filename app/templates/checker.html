@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 align="center">Verificador</h1>
+<div align="center">Verificar registro da placa</div>
+<br>
+<br>
+
+<form action="/" method="POST" enctype="multipart/form-data" id="formScript">
+    <table align="center">
+        <tr>
+            <td width="40">
+                <select class="custom-select" id="estado" name="estado" onchange="buscaCidades(this.value)">
+                    <option selected>Selecione o estado</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                </select>
+            </td>
+            <td width="60"><select class="custom-select" id="cidade" name="cidade">
+                <option value="SL"></option>
+                <option></option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="submit" id="btnSubmit" data-toggle="modal" data-target="#checkerResult">Verificar</button>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="uploadFile" name="uploadFile"
+                               aria-describedby="uploadFile"/>
+                        <label class="custom-file-label" for="uploadFile" id="uploadFileText">Selecionar Arquivo</label>
+                    </div>
+                </div>
+                </div>
+            </td>
+        <tr>
+    </table>
+</form>
+<br>
+<br>
+{% endblock %}
+
+

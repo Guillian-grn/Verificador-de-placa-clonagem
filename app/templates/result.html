@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 align="center">Resultado</h1>
+<div align="center">Resultado da placa pesquisada</div>
+<br>
+<br>
+
+<form method="POST" id="form">
+    <table align="center">
+        <tr>
+            <div class="form-group">
+                <td colspan="2">
+                    {% if flag%}
+                    <div align="center" class="alert alert-success" role="alert">
+                        Sem sinal de clonagem
+                    </div>
+                    {% else %}
+                    <div align="center" class="alert alert-danger" role="alert">
+                        Placa clonada! Favor comunicar a polícia
+                    </div>
+                    {%endif%}
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+
+                    <label class="col-form-label">Placa:</label>
+                </td>
+                <td>
+                    <input id="resultPlaca" class="form-control" type="text" value="{{placa}}" readonly>
+
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+
+                    <label class="col-form-label">Estado:</label>
+                </td>
+                <td>
+                    <input id="resultEstado" class="form-control" type="text" value="{{estado}}" readonly>
+
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <label class="col-form-label">Cidade:</label>
+                </td>
+                <td>
+                    <input id="resultCidade" class="form-control" type="text" value="{{cidade}}" readonly>
+
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-secondary" onclick="document.location='/checker'">Voltar</button>
+                <button type="button" class="btn btn-primary" id="btnAlertar" data-toggle="modal" data-target="#informPolice">Alertar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<!-- Modal -->
+<div class="modal fade" id="informPolice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Atenção!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Policia Alertada!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

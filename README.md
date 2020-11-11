@@ -1,0 +1,2 @@
+# Verificador de placa-clonagem
+ 
